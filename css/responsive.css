@@ -1,0 +1,23 @@
+/* responsive.css — Media queries centralizadas */
+/* Mobile-first: estilos padrão para < 640px */
+
+@media (min-width: 640px) {
+  /* Tablet ajustes */
+}
+
+@media (min-width: 1024px) {
+  /* Desktop ajustes */
+}
+
+@media (min-width: 1440px) {
+  /* Wide ajustes */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

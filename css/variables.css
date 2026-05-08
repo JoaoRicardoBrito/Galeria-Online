@@ -1,0 +1,49 @@
+/* variables.css — Design tokens globais da Galeria Online Carlos Ventura */
+/* Consumir via var(--token) em qualquer arquivo CSS */
+
+:root {
+  /* Cores - paleta SDD */
+  --color-bg: #F7F4EE;
+  --color-bg-secondary: #EDE8DC;
+  --color-text: #2C2C2A;
+  --color-text-secondary: #7A7060;
+  --color-gold: #B8975A;
+  --color-border: #C8BAA0;
+  --color-vendido: #9E6B5A;
+  --color-card-hover: #E5DFD1;
+
+  /* Tipografia - famílias */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Jost', 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* Tipografia - escala fluida com clamp() */
+  --text-h1: clamp(2rem, 5vw, 4rem);
+  --text-h2: clamp(1.5rem, 3vw, 2.5rem);
+  --text-h3: clamp(1.2rem, 2.2vw, 1.6rem);
+  --text-body: clamp(0.95rem, 1.2vw, 1.075rem);
+  --text-meta: 0.75rem;
+  --letter-spacing-meta: 0.1em;
+
+  /* Espaçamento - escala base 4px */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+
+  /* Transições */
+  --transition-fast: 200ms ease;
+  --transition-base: 350ms ease-in-out;
+
+  /* Grid */
+  --card-min-width: 260px;
+  --card-gap: 1.5rem;
+
+  /* Layout */
+  --max-width-content: 1280px;
+  --max-width-prose: 680px;
+  --header-height: 72px;
+}

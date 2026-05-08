@@ -1,0 +1,45 @@
+/* base.css — Tipografia global e cores aplicadas */
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--text-h1);
+}
+
+h2 {
+  font-size: var(--text-h2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+}
+
+p {
+  margin-block-end: var(--space-4);
+}
+
+.meta {
+  font-size: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-meta);
+  color: var(--color-text-secondary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
