@@ -1,1 +1,143 @@
-/* gallery.css — grid e cards de obras.html (Phase 2) */
+/* gallery.css — grid e cards de obras.html */
+
+/* ── Layout da página ───────────────────────────────────── */
+
+.gallery-page {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+}
+
+.gallery-page__header {
+  margin-bottom: var(--space-8);
+}
+
+.gallery-page__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-h1);
+  margin-bottom: var(--space-2);
+}
+
+.gallery-page__count {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* ── Grid ───────────────────────────────────────────────── */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--card-min-width), 1fr));
+  gap: var(--card-gap);
+  align-items: start;
+}
+
+/* ── Card ───────────────────────────────────────────────── */
+
+.artwork-card {
+  position: relative;
+}
+
+.artwork-card__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.artwork-card__img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+}
+
+.artwork-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform var(--transition-base);
+  display: block;
+}
+
+.artwork-card__link:hover .artwork-card__image {
+  transform: scale(1.04);
+}
+
+.artwork-card__img-wrap .badge--vendido {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 2;
+}
+
+/* Info — visível no hover */
+.artwork-card__info {
+  padding: var(--space-3) var(--space-1) var(--space-2);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.artwork-card__link:hover .artwork-card__info,
+.artwork-card__link:focus-visible .artwork-card__info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.artwork-card__name {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  margin-bottom: var(--space-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.artwork-card__meta {
+  font-size: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-meta);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.artwork-card__price {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+/* ── Estado vazio ───────────────────────────────────────── */
+
+.gallery-empty {
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+  color: var(--color-text-secondary);
+}
+
+.gallery-empty__title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  margin-bottom: var(--space-3);
+  color: var(--color-text);
+}
+
+.gallery-empty__text {
+  font-size: 0.9rem;
+  margin-bottom: var(--space-6);
+}
+
+/* ── Responsivo ─────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  .artwork-card__info {
+    opacity: 1;
+    transform: none;
+  }
+}

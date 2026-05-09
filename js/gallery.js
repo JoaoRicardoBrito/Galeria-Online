@@ -1,0 +1,61 @@
+import { getObras } from '/js/data.js';
+
+export async function initGallery() {
+  const grid = document.getElementById('gallery-grid');
+  const empty = document.getElementById('gallery-empty');
+  if (!grid) return;
+
+  const obras = await getObras();
+
+  // Pré-filtro por ?colecao= na URL
+  const params = new URLSearchParams(window.location.search);
+  const preColecao = params.get('colecao');
+  const initial = preColecao
+    ? obras.filter(o => o.colecao === preColecao)
+    : obras;
+
+  renderGrid(initial, grid, empty);
+
+  const count = document.getElementById('gallery-count');
+  if (count) count.textContent = `${initial.length} obra${initial.length !== 1 ? 's' : ''}`;
+}
+
+export function renderGrid(obras, grid, empty) {
+  grid.innerHTML = '';
+
+  if (!obras.length) {
+    if (empty) empty.hidden = false;
+    return;
+  }
+  if (empty) empty.hidden = true;
+
+  obras.forEach(obra => {
+    const card = document.createElement('article');
+    card.className = 'artwork-card';
+
+    card.innerHTML = `
+      <a href="/obra.html?id=${obra.id}" class="artwork-card__link" aria-label="${obra.nome}">
+        <div class="artwork-card__img-wrap">
+          <img
+            src="/${obra.imagem}"
+            alt="${obra.imagemAlt}"
+            class="artwork-card__image"
+            loading="lazy"
+            width="400"
+            height="500"
+          >
+          ${obra.status === 'vendido'
+            ? '<span class="badge--vendido" aria-label="Obra vendida">Vendido</span>'
+            : ''}
+        </div>
+        <div class="artwork-card__info">
+          <h2 class="artwork-card__name">${obra.nome}</h2>
+          <p class="artwork-card__meta">${obra.tecnica}</p>
+          <p class="artwork-card__price">R$ ${obra.preco.toLocaleString('pt-BR')}</p>
+        </div>
+      </a>
+    `;
+
+    grid.appendChild(card);
+  });
+}

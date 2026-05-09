@@ -8,16 +8,16 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Obras — Carlos Ventura">
-  <meta property="og:description" content="Galeria completa de obras de Carlos Ventura. Filtre por técnica, coleção, ano, preço e orientação.">
+  <meta property="og:description" content="Galeria completa de obras de Carlos Ventura.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="/assets/quadros/adrianna-geo-1rBg5YSi00c-unsplash.jpg">
 
-  <!-- Google Fonts: Playfair Display + Jost -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap">
 
-  <!-- CSS — ordem: reset → variables → base → layout → components → page → responsive -->
+  <!-- CSS -->
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/variables.css">
   <link rel="stylesheet" href="/css/base.css">
@@ -29,9 +29,21 @@
 <body id="page-obras">
   <header id="site-header" class="site-header"></header>
 
-  <main class="page-wrapper">
-    <h1>Obras</h1>
-    <div id="gallery-root"></div>
+  <main>
+    <div class="gallery-page">
+      <div class="gallery-page__header">
+        <h1 class="gallery-page__title">Obras</h1>
+        <p class="gallery-page__count" id="gallery-count"></p>
+      </div>
+
+      <div id="gallery-grid" class="gallery-grid"></div>
+
+      <div id="gallery-empty" class="gallery-empty" hidden>
+        <h2 class="gallery-empty__title">Nenhuma obra encontrada</h2>
+        <p class="gallery-empty__text">Tente outros filtros ou explore o portfólio completo.</p>
+        <a href="/obras.html" class="btn btn--ghost">Ver todas as obras</a>
+      </div>
+    </div>
   </main>
 
   <footer id="site-footer" class="site-footer"></footer>

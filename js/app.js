@@ -34,9 +34,11 @@ async function dispatchPage() {
       await initCarousel();
       break;
     }
-    case 'page-obras':
-      // Phase 2: const { initGallery } = await import('/js/gallery.js'); initGallery();
+    case 'page-obras': {
+      const { initGallery } = await import('/js/gallery.js');
+      await initGallery();
       break;
+    }
     case 'page-obra':
       // Phase 3: const { initObra } = await import('/js/obra.js'); initObra();
       break;
