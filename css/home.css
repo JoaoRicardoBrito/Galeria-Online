@@ -1,1 +1,336 @@
-/* home.css — estilos específicos de index.html (Phase 4) */
+/* home.css — estilos da página inicial */
+
+/* ── Carrossel Hero ─────────────────────────────────────── */
+
+.carousel {
+  position: relative;
+  height: clamp(50vh, 75vh, 85vh);
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+}
+
+.carousel__track {
+  position: relative;
+  height: 100%;
+}
+
+.carousel__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
+  pointer-events: none;
+}
+
+.carousel__slide--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.carousel__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(44, 44, 42, 0.7) 0%, transparent 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-12) var(--space-8);
+  color: #fff;
+}
+
+.carousel__collection {
+  font-size: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-meta);
+  color: var(--color-gold);
+  margin-bottom: var(--space-2);
+}
+
+.carousel__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: var(--space-4);
+  max-width: 600px;
+}
+
+.carousel__link {
+  display: inline-block;
+  color: #fff;
+  border-bottom: 1px solid var(--color-gold);
+  padding-bottom: 2px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.carousel__link:hover {
+  color: var(--color-gold);
+}
+
+.carousel__btn--prev,
+.carousel__btn--next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(247, 244, 238, 0.15);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: background var(--transition-fast);
+}
+
+.carousel__btn--prev:hover,
+.carousel__btn--next:hover {
+  background: rgba(247, 244, 238, 0.3);
+}
+
+.carousel__btn--prev { left: var(--space-4); }
+.carousel__btn--next { right: var(--space-4); }
+
+.carousel__dots {
+  position: absolute;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-2);
+  z-index: 10;
+}
+
+.carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.carousel__dot--active {
+  background: var(--color-gold);
+  transform: scale(1.25);
+}
+
+/* ── Obra em Destaque ───────────────────────────────────── */
+
+.featured {
+  padding: var(--space-16) var(--space-6);
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+}
+
+.featured__label {
+  font-size: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-meta);
+  color: var(--color-gold);
+  margin-bottom: var(--space-4);
+}
+
+.featured__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.featured__img-wrap {
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+
+.featured__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.featured__img-wrap:hover img {
+  transform: scale(1.03);
+}
+
+.featured__info {
+  padding: var(--space-4) 0;
+}
+
+.featured__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: var(--space-3);
+}
+
+.featured__meta {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.featured__desc {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+  max-width: 480px;
+}
+
+.featured__price {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+}
+
+/* ── Coleções ───────────────────────────────────────────── */
+
+.collections {
+  background: var(--color-bg-secondary);
+  padding: var(--space-16) var(--space-6);
+}
+
+.collections__inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+}
+
+.collections__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-8);
+}
+
+.collections__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
+}
+
+.collections__link {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-fast);
+}
+
+.collections__link:hover {
+  color: var(--color-gold);
+}
+
+.collections__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.collection-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  background: var(--color-bg);
+  transition: transform var(--transition-fast);
+}
+
+.collection-card:hover {
+  transform: translateY(-2px);
+}
+
+.collection-card__img-wrap {
+  aspect-ratio: 3/2;
+  overflow: hidden;
+}
+
+.collection-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.collection-card:hover .collection-card__img-wrap img {
+  transform: scale(1.04);
+}
+
+.collection-card__body {
+  padding: var(--space-4) var(--space-4) var(--space-6);
+}
+
+.collection-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  margin-bottom: var(--space-2);
+}
+
+.collection-card__desc {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Apresentação do Artista ────────────────────────────── */
+
+.artist-intro {
+  padding: var(--space-16) var(--space-6);
+  max-width: var(--max-width-prose);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.artist-intro__label {
+  font-size: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-meta);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.artist-intro__name {
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
+  margin-bottom: var(--space-6);
+}
+
+.artist-intro__text {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-8);
+}
+
+/* ── CTA Galeria ────────────────────────────────────────── */
+
+.home-cta {
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+  background: var(--color-bg-secondary);
+}
+
+.home-cta__text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+/* ── Responsivo ─────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .featured__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel__overlay {
+    padding: var(--space-8) var(--space-4);
+  }
+}

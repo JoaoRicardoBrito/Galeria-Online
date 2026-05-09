@@ -29,9 +29,11 @@ function markActiveNav() {
 async function dispatchPage() {
   const page = document.body.id;
   switch (page) {
-    case 'page-index':
-      // Phase 4: const { initHome } = await import('/js/home.js'); initHome();
+    case 'page-index': {
+      const { initCarousel } = await import('/js/carousel.js');
+      await initCarousel();
       break;
+    }
     case 'page-obras':
       // Phase 2: const { initGallery } = await import('/js/gallery.js'); initGallery();
       break;

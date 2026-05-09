@@ -10,14 +10,14 @@
   <meta property="og:title" content="Carlos Ventura — Galeria de Arte">
   <meta property="og:description" content="Galeria online do artista visual Carlos Ventura. Obras das coleções Paisagens Urbanas e Grandeza do Mundo.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="/assets/quadros/adrianna-geo-1rBg5YSi00c-unsplash.jpg">
+  <meta property="og:image" content="/assets/quadros/europeana-5TK1F5VfdIk-unsplash.jpg">
 
   <!-- Google Fonts: Playfair Display + Jost -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap">
 
-  <!-- CSS — ordem: reset → variables → base → layout → components → page → responsive -->
+  <!-- CSS -->
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/variables.css">
   <link rel="stylesheet" href="/css/base.css">
@@ -29,9 +29,76 @@
 <body id="page-index">
   <header id="site-header" class="site-header"></header>
 
-  <main class="page-wrapper">
-    <h1>Carlos Ventura</h1>
-    <p>Galeria de arte. Conteúdo será preenchido na Phase 4.</p>
+  <main>
+
+    <!-- Carrossel Hero -->
+    <section class="carousel" aria-label="Obras em destaque" role="region">
+      <div class="carousel__track"></div>
+      <button class="carousel__btn--prev" aria-label="Slide anterior">&#8592;</button>
+      <button class="carousel__btn--next" aria-label="Próximo slide">&#8594;</button>
+      <div class="carousel__dots" role="tablist" aria-label="Indicadores de slide"></div>
+    </section>
+
+    <!-- Obra em Destaque -->
+    <section class="featured" id="featured-section">
+      <p class="featured__label">Obra em destaque</p>
+      <div class="featured__inner" id="featured-content">
+        <!-- preenchido por carousel.js -->
+      </div>
+    </section>
+
+    <!-- Coleções -->
+    <section class="collections">
+      <div class="collections__inner">
+        <div class="collections__header">
+          <h2 class="collections__title">Coleções</h2>
+          <a href="/colecoes.html" class="collections__link">Ver todas</a>
+        </div>
+        <div class="collections__grid" id="collections-grid">
+          <a href="/obras.html?colecao=Paisagens%20Urbanas" class="collection-card">
+            <div class="collection-card__img-wrap">
+              <img src="/assets/quadros/birmingham-museums-trust-8wcoY3wcbL0-unsplash.jpg"
+                   alt="Fachadas históricas — coleção Paisagens Urbanas"
+                   loading="lazy">
+            </div>
+            <div class="collection-card__body">
+              <h3 class="collection-card__name">Paisagens Urbanas</h3>
+              <p class="collection-card__desc">O cotidiano brasileiro visto através de avenidas, fachadas e mercados populares.</p>
+            </div>
+          </a>
+          <a href="/obras.html?colecao=Grandeza%20do%20Mundo" class="collection-card">
+            <div class="collection-card__img-wrap">
+              <img src="/assets/quadros/europeana-5TK1F5VfdIk-unsplash.jpg"
+                   alt="Pico entre nuvens — coleção Grandeza do Mundo"
+                   loading="lazy">
+            </div>
+            <div class="collection-card__body">
+              <h3 class="collection-card__name">Grandeza do Mundo</h3>
+              <p class="collection-card__desc">A imensidão da natureza — montanhas, oceanos e chapadas que provocam silêncio interior.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apresentação do Artista -->
+    <section class="artist-intro">
+      <p class="artist-intro__label">O artista</p>
+      <h2 class="artist-intro__name">Carlos Ventura</h2>
+      <p class="artist-intro__text">
+        Pintor brasileiro com trajetória dedicada à representação da paisagem — urbana e natural —
+        como espaço de memória e contemplação. Suas obras transitam entre a documentação sensível
+        do cotidiano e a busca pelo sublime na natureza.
+      </p>
+      <a href="/sobre.html" class="btn btn--ghost">Conheça o artista</a>
+    </section>
+
+    <!-- CTA Galeria -->
+    <section class="home-cta">
+      <p class="home-cta__text">Explore o portfólio completo</p>
+      <a href="/obras.html" class="btn btn--primary">Ver todas as obras</a>
+    </section>
+
   </main>
 
   <footer id="site-footer" class="site-footer"></footer>
