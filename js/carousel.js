@@ -1,6 +1,6 @@
 import { getObras } from '/js/data.js';
 
-const INTERVAL = 6000;
+const INTERVAL = 5000;
 const TRANSITION = 600;
 
 export async function initCarousel() {
