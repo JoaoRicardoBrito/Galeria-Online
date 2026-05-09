@@ -39,9 +39,11 @@ async function dispatchPage() {
       await initGallery();
       break;
     }
-    case 'page-obra':
-      // Phase 3: const { initObra } = await import('/js/obra.js'); initObra();
+    case 'page-obra': {
+      const { initObra } = await import('/js/obra.js');
+      await initObra();
       break;
+    }
     case 'page-sobre':
       // Phase 5: nenhuma lógica dinâmica
       break;

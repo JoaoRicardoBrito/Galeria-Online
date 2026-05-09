@@ -1,1 +1,207 @@
-/* obra.css — página individual de obra.html (Phase 3) */
+/* obra.css — página individual de obra */
+
+/* ── Layout ─────────────────────────────────────────────── */
+
+.obra-page {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+}
+
+.obra-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+/* ── Imagem ─────────────────────────────────────────────── */
+
+.obra-img-wrap {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+  position: relative;
+}
+
+.obra-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.obra-img-wrap--error::after {
+  content: 'Imagem não disponível';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
+}
+
+/* ── Metadados ──────────────────────────────────────────── */
+
+.obra-layout__info {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
+}
+
+.obra-collection {
+  color: var(--color-gold);
+  margin-bottom: var(--space-3);
+}
+
+.obra-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.2;
+  margin-bottom: var(--space-4);
+}
+
+.obra-meta-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ── Preço ──────────────────────────────────────────────── */
+
+.obra-price-wrap {
+  margin-bottom: var(--space-6);
+}
+
+.obra-price {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.obra-price-fx {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+  min-height: 1rem;
+}
+
+/* ── Descrição ──────────────────────────────────────────── */
+
+.obra-desc {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-8);
+}
+
+/* ── CTA ────────────────────────────────────────────────── */
+
+.obra-whatsapp-btn {
+  width: 100%;
+  font-size: 1rem;
+}
+
+.obra-vendida {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  border: 1px solid var(--color-border);
+  padding: var(--space-4) var(--space-4);
+  text-align: center;
+}
+
+/* ── Not found ──────────────────────────────────────────── */
+
+.obra-not-found {
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+}
+
+.obra-not-found__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
+  margin-bottom: var(--space-4);
+}
+
+.obra-not-found__text {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-8);
+}
+
+/* ── Obras Relacionadas ─────────────────────────────────── */
+
+.obras-relacionadas {
+  margin-top: var(--space-16);
+  padding-top: var(--space-12);
+  border-top: 1px solid var(--color-border);
+}
+
+.obras-relacionadas__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
+  margin-bottom: var(--space-8);
+}
+
+.relacionadas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-6);
+}
+
+.relacionada-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.relacionada-card__img-wrap {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.relacionada-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.relacionada-card:hover .relacionada-card__img-wrap img {
+  transform: scale(1.04);
+}
+
+.relacionada-card__name {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-1);
+}
+
+.relacionada-card__price {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+/* ── Responsivo ─────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .obra-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .obra-layout__info {
+    position: static;
+  }
+
+  .obra-img-wrap {
+    aspect-ratio: 1 / 1;
+  }
+}

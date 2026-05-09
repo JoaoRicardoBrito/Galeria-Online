@@ -6,18 +6,18 @@
   <title>Obra — Carlos Ventura</title>
   <meta name="description" content="Detalhes da obra selecionada do portfólio de Carlos Ventura.">
 
-  <!-- Open Graph -->
+  <!-- Open Graph (atualizado dinamicamente por obra.js) -->
   <meta property="og:title" content="Obra — Carlos Ventura">
   <meta property="og:description" content="Detalhes da obra selecionada do portfólio de Carlos Ventura.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="/assets/quadros/adrianna-geo-1rBg5YSi00c-unsplash.jpg">
+  <meta property="og:image" content="">
 
-  <!-- Google Fonts: Playfair Display + Jost -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap">
 
-  <!-- CSS — ordem: reset → variables → base → layout → components → page → responsive -->
+  <!-- CSS -->
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/variables.css">
   <link rel="stylesheet" href="/css/base.css">
@@ -29,8 +29,15 @@
 <body id="page-obra">
   <header id="site-header" class="site-header"></header>
 
-  <main class="page-wrapper">
-    <article id="obra-root"><h1>Obra</h1></article>
+  <main>
+    <div class="obra-page">
+      <article id="obra-root"></article>
+
+      <section id="obras-relacionadas" class="obras-relacionadas" hidden>
+        <h2 class="obras-relacionadas__title">Obras relacionadas</h2>
+        <div class="relacionadas-grid"></div>
+      </section>
+    </div>
   </main>
 
   <footer id="site-footer" class="site-footer"></footer>
