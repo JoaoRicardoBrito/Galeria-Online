@@ -1,1 +1,245 @@
-/* sobre.css — página institucional sobre.html (Phase 5) */
+/* sobre.css — página institucional */
+
+/* ── Layout geral ───────────────────────────────────────── */
+
+.sobre-page {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6);
+}
+
+/* ── Foto principal ─────────────────────────────────────── */
+
+.sobre-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  margin-bottom: var(--space-16);
+}
+
+.sobre-hero__img-wrap {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+}
+
+.sobre-hero__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.sobre-hero__intro {
+  padding: var(--space-4) 0;
+}
+
+.sobre-hero__label {
+  font-size: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-meta);
+  color: var(--color-gold);
+  margin-bottom: var(--space-4);
+}
+
+.sobre-hero__name {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: var(--space-6);
+}
+
+.sobre-hero__lead {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* ── Biografia ──────────────────────────────────────────── */
+
+.sobre-bio {
+  max-width: var(--max-width-prose);
+  margin: 0 auto var(--space-16);
+}
+
+.sobre-bio__text {
+  color: var(--color-text-secondary);
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+.sobre-bio__text + .sobre-bio__text {
+  margin-top: var(--space-4);
+}
+
+/* ── Citação ────────────────────────────────────────────── */
+
+.sobre-quote {
+  max-width: var(--max-width-prose);
+  margin: 0 auto var(--space-16);
+  padding: var(--space-8) var(--space-8);
+  border-left: 3px solid var(--color-gold);
+  background: var(--color-bg-secondary);
+}
+
+.sobre-quote__text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  line-height: 1.5;
+  color: var(--color-text);
+  font-style: italic;
+  margin-bottom: var(--space-4);
+}
+
+.sobre-quote__author {
+  font-size: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-meta);
+  color: var(--color-text-secondary);
+}
+
+/* ── Linha do tempo ─────────────────────────────────────── */
+
+.sobre-timeline {
+  max-width: var(--max-width-prose);
+  margin: 0 auto var(--space-16);
+}
+
+.sobre-timeline__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
+  margin-bottom: var(--space-8);
+}
+
+.timeline-list {
+  list-style: none;
+  position: relative;
+  padding-left: var(--space-8);
+}
+
+.timeline-list::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-6);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-8) + 3px);
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 2px solid var(--color-bg);
+  outline: 1px solid var(--color-gold);
+}
+
+.timeline-item__year {
+  font-size: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-meta);
+  color: var(--color-gold);
+  margin-bottom: var(--space-1);
+}
+
+.timeline-item__desc {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Exposições ─────────────────────────────────────────── */
+
+.sobre-exposicoes {
+  max-width: var(--max-width-prose);
+  margin: 0 auto var(--space-16);
+}
+
+.sobre-exposicoes__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
+  margin-bottom: var(--space-8);
+}
+
+.exposicoes-list {
+  list-style: none;
+}
+
+.exposicoes-list li {
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  display: flex;
+  gap: var(--space-6);
+}
+
+.exposicoes-list li:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.exposicoes-list__year {
+  font-size: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-meta);
+  color: var(--color-text-secondary);
+  min-width: 40px;
+  padding-top: 2px;
+}
+
+/* ── Fotos de apoio ─────────────────────────────────────── */
+
+.sobre-fotos {
+  max-width: var(--max-width-content);
+  margin: 0 auto var(--space-16);
+}
+
+.sobre-fotos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+.sobre-foto-item {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+}
+
+.sobre-foto-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.sobre-foto-item:hover img {
+  transform: scale(1.03);
+}
+
+/* ── Responsivo ─────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .sobre-hero {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .sobre-hero__img-wrap {
+    aspect-ratio: 1 / 1;
+  }
+
+  .sobre-quote {
+    padding: var(--space-6) var(--space-4);
+  }
+}

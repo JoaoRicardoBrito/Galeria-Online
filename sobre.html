@@ -10,14 +10,14 @@
   <meta property="og:title" content="Sobre Carlos Ventura">
   <meta property="og:description" content="Trajetória, exposições e processo do artista visual Carlos Ventura.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="/assets/quadros/adrianna-geo-1rBg5YSi00c-unsplash.jpg">
+  <meta property="og:image" content="/assets/artista/adrianna-geo-1rBg5YSi00c-unsplash.jpg">
 
-  <!-- Google Fonts: Playfair Display + Jost -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap">
 
-  <!-- CSS — ordem: reset → variables → base → layout → components → page → responsive -->
+  <!-- CSS -->
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/variables.css">
   <link rel="stylesheet" href="/css/base.css">
@@ -29,8 +29,151 @@
 <body id="page-sobre">
   <header id="site-header" class="site-header"></header>
 
-  <main class="page-wrapper">
-    <h1>Sobre Carlos Ventura</h1>
+  <main>
+    <div class="sobre-page">
+
+      <!-- Foto + Introdução -->
+      <section class="sobre-hero">
+        <div class="sobre-hero__img-wrap">
+          <img
+            src="/assets/artista/birmingham-museums-trust-wKlHsooRVbg-unsplash.jpg"
+            alt="Carlos Ventura em seu ateliê"
+            fetchpriority="high"
+          >
+        </div>
+        <div class="sobre-hero__intro">
+          <p class="sobre-hero__label">O artista</p>
+          <h1 class="sobre-hero__name">Carlos Ventura</h1>
+          <p class="sobre-hero__lead">
+            Pintor brasileiro radicado no Nordeste, Carlos Ventura dedica sua prática
+            à representação da paisagem — urbana e natural — como espaço de memória,
+            contemplação e identidade cultural.
+          </p>
+        </div>
+      </section>
+
+      <!-- Biografia -->
+      <section class="sobre-bio">
+        <p class="sobre-bio__text">
+          Nascido em Recife, Carlos Ventura iniciou sua formação artística no início dos
+          anos 2000, influenciado pela pintura nordestina e pela tradição do realismo
+          brasileiro. Sua trajetória é marcada por uma busca constante entre o registro
+          documental do cotidiano e a expressão subjetiva da paisagem como estado de espírito.
+        </p>
+        <p class="sobre-bio__text">
+          Ao longo de mais de duas décadas de trabalho, desenvolveu uma linguagem pictórica
+          própria que transita entre o óleo e a acrílica, sempre com atenção especial
+          à luz — especialmente a luz difusa do sertão e o brilho metálico das metrópoles
+          brasileiras ao entardecer.
+        </p>
+        <p class="sobre-bio__text">
+          Suas obras integram coleções particulares no Brasil e no exterior, e já foram
+          exibidas em mostras coletivas e individuais em Recife, São Paulo e Lisboa.
+          Carlos acredita que a pintura é um ato de resistência ao esquecimento —
+          uma forma de preservar o que o olhar cotidiano frequentemente não vê.
+        </p>
+      </section>
+
+      <!-- Citação -->
+      <blockquote class="sobre-quote">
+        <p class="sobre-quote__text">
+          "Pinto porque preciso parar o tempo. Cada tela é uma tentativa de segurar
+          aquilo que o olhar descuidado deixa passar — a luz de um entardecer que nunca
+          mais vai acontecer exatamente assim."
+        </p>
+        <cite class="sobre-quote__author">Carlos Ventura</cite>
+      </blockquote>
+
+      <!-- Linha do Tempo -->
+      <section class="sobre-timeline">
+        <h2 class="sobre-timeline__title">Trajetória</h2>
+        <ul class="timeline-list">
+          <li class="timeline-item">
+            <p class="timeline-item__year">2003</p>
+            <p class="timeline-item__desc">Início dos estudos de pintura em Recife. Primeiros experimentos com óleo sobre tela.</p>
+          </li>
+          <li class="timeline-item">
+            <p class="timeline-item__year">2007</p>
+            <p class="timeline-item__desc">Primeira exposição coletiva no Centro Cultural Recife. Início da série sobre paisagens urbanas do Recife Antigo.</p>
+          </li>
+          <li class="timeline-item">
+            <p class="timeline-item__year">2012</p>
+            <p class="timeline-item__desc">Exposição individual "Paisagens Urbanas" na Galeria Metropolitana, Recife. Reconhecimento pela crítica local.</p>
+          </li>
+          <li class="timeline-item">
+            <p class="timeline-item__year">2016</p>
+            <p class="timeline-item__desc">Residência artística em Lisboa. Início da série "Grandeza do Mundo", explorando paisagens naturais de grande escala.</p>
+          </li>
+          <li class="timeline-item">
+            <p class="timeline-item__year">2019</p>
+            <p class="timeline-item__desc">Mostra coletiva "Arte Brasileira Contemporânea" em São Paulo. Obras adquiridas por colecionadores internacionais.</p>
+          </li>
+          <li class="timeline-item">
+            <p class="timeline-item__year">2023</p>
+            <p class="timeline-item__desc">Lançamento da galeria online. Início da fase de maior produção, com obras disponíveis para aquisição direta.</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Exposições -->
+      <section class="sobre-exposicoes">
+        <h2 class="sobre-exposicoes__title">Exposições</h2>
+        <ul class="exposicoes-list">
+          <li>
+            <span class="exposicoes-list__year">2023</span>
+            <span>Arte Brasileira — Galeria Sul, São Paulo (coletiva)</span>
+          </li>
+          <li>
+            <span class="exposicoes-list__year">2021</span>
+            <span>Sertão e Luz — Centro Cultural do Nordeste, Recife (individual)</span>
+          </li>
+          <li>
+            <span class="exposicoes-list__year">2019</span>
+            <span>Arte Brasileira Contemporânea — MASP, São Paulo (coletiva)</span>
+          </li>
+          <li>
+            <span class="exposicoes-list__year">2016</span>
+            <span>Residência Artística — Fábrica de Braço de Prata, Lisboa</span>
+          </li>
+          <li>
+            <span class="exposicoes-list__year">2012</span>
+            <span>Paisagens Urbanas — Galeria Metropolitana, Recife (individual)</span>
+          </li>
+          <li>
+            <span class="exposicoes-list__year">2007</span>
+            <span>Novos Pintores do Nordeste — Centro Cultural Recife (coletiva)</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Fotos de apoio -->
+      <section class="sobre-fotos">
+        <div class="sobre-fotos__grid">
+          <div class="sobre-foto-item">
+            <img
+              src="/assets/artista/birmingham-museums-trust-8wcoY3wcbL0-unsplash.jpg"
+              alt="Carlos Ventura trabalhando no ateliê"
+              loading="lazy"
+            >
+          </div>
+          <div class="sobre-foto-item">
+            <img
+              src="/assets/artista/Gemini_Generated_Image_ndra0bndra0bndra.png"
+              alt="Processo de criação — detalhe de pinceladas"
+              loading="lazy"
+            >
+          </div>
+          <div class="sobre-foto-item">
+            <img
+              src="/assets/artista/Gemini_Generated_Image_vho3p3vho3p3vho3.png"
+              alt="Ateliê do artista com telas em andamento"
+              loading="lazy"
+            >
+          </div>
+        </div>
+      </section>
+
+    </div>
   </main>
 
   <footer id="site-footer" class="site-footer"></footer>
