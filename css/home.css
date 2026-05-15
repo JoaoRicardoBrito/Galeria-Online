@@ -49,7 +49,7 @@
   font-size: var(--text-meta);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-meta);
-  color: var(--color-gold);
+  color: var(--color-gold-on-dark);
   margin-bottom: var(--space-2);
 }
 
@@ -65,15 +65,16 @@
 .carousel__link {
   display: inline-block;
   color: #fff;
-  border-bottom: 1px solid var(--color-gold);
+  border-bottom: 1px solid var(--color-gold-on-dark);
   padding-bottom: 2px;
   font-size: 0.9rem;
   letter-spacing: 0.05em;
   transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
-.carousel__link:hover {
-  color: var(--color-gold);
+.carousel__link:hover,
+.carousel__link:focus-visible {
+  color: var(--color-gold-on-dark);
 }
 
 .carousel__btn--prev,
@@ -87,7 +88,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(247, 244, 238, 0.15);
+  background: rgba(44, 44, 42, 0.72);
   border-radius: 50%;
   color: #fff;
   font-size: 1.2rem;
@@ -95,8 +96,10 @@
 }
 
 .carousel__btn--prev:hover,
-.carousel__btn--next:hover {
-  background: rgba(247, 244, 238, 0.3);
+.carousel__btn--next:hover,
+.carousel__btn--prev:focus-visible,
+.carousel__btn--next:focus-visible {
+  background: rgba(44, 44, 42, 0.88);
 }
 
 .carousel__btn--prev { left: var(--space-4); }
@@ -116,12 +119,14 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  transition: background var(--transition-fast), transform var(--transition-fast);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(44, 44, 42, 0.72);
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .carousel__dot--active {
-  background: var(--color-gold);
+  background: var(--color-gold-on-dark);
+  border-color: rgba(44, 44, 42, 0.9);
   transform: scale(1.25);
 }
 

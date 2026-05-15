@@ -6,10 +6,11 @@
   --color-bg: #F7F4EE;
   --color-bg-secondary: #EDE8DC;
   --color-text: #2C2C2A;
-  --color-text-secondary: #7A7060;
-  --color-gold: #B8975A;
+  --color-text-secondary: #665D50;
+  --color-gold: #73551E;
+  --color-gold-on-dark: #E1BD68;
   --color-border: #C8BAA0;
-  --color-vendido: #9E6B5A;
+  --color-vendido: #7D4F3E;
   --color-card-hover: #E5DFD1;
 
   /* Tipografia - famílias */

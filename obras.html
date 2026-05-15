@@ -33,7 +33,7 @@
     <div class="gallery-page">
       <div class="gallery-page__header">
         <h1 class="gallery-page__title">Obras</h1>
-        <p class="gallery-page__count" id="gallery-count"></p>
+        <p class="gallery-page__count" id="gallery-count" aria-live="polite"></p>
       </div>
 
       <section class="gallery-filters" aria-label="Filtros da galeria">
@@ -69,9 +69,12 @@
           <fieldset class="filter-field filter-field--buttons">
             <legend class="filter-label">Tamanho</legend>
             <div class="filter-toggle-group" role="group" aria-label="Filtrar por tamanho">
-              <button type="button" class="filter-chip" data-filter-size="P" aria-pressed="false">P</button>
-              <button type="button" class="filter-chip" data-filter-size="M" aria-pressed="false">M</button>
-              <button type="button" class="filter-chip" data-filter-size="G" aria-pressed="false">G</button>
+              <button type="button" id="filter-size-p" class="filter-chip" data-filter-size="P" aria-pressed="false" aria-label="Filtrar obras pequenas">P</button>
+              <label for="filter-size-p" class="sr-only">Filtrar obras pequenas</label>
+              <button type="button" id="filter-size-m" class="filter-chip" data-filter-size="M" aria-pressed="false" aria-label="Filtrar obras médias">M</button>
+              <label for="filter-size-m" class="sr-only">Filtrar obras médias</label>
+              <button type="button" id="filter-size-g" class="filter-chip" data-filter-size="G" aria-pressed="false" aria-label="Filtrar obras grandes">G</button>
+              <label for="filter-size-g" class="sr-only">Filtrar obras grandes</label>
             </div>
           </fieldset>
 
@@ -105,9 +108,11 @@
 
           <fieldset class="filter-field filter-field--buttons">
             <legend class="filter-label">Orienta&ccedil;&atilde;o</legend>
-            <div class="filter-toggle-group" role="group" aria-label="Filtrar por orientacao">
-              <button type="button" class="filter-chip" data-filter-orientation="vertical" aria-pressed="false">Vertical</button>
-              <button type="button" class="filter-chip" data-filter-orientation="horizontal" aria-pressed="false">Horizontal</button>
+            <div class="filter-toggle-group" role="group" aria-label="Filtrar por orienta&ccedil;&atilde;o">
+              <button type="button" id="filter-orientation-vertical" class="filter-chip" data-filter-orientation="vertical" aria-pressed="false" aria-label="Filtrar obras verticais">Vertical</button>
+              <label for="filter-orientation-vertical" class="sr-only">Filtrar obras verticais</label>
+              <button type="button" id="filter-orientation-horizontal" class="filter-chip" data-filter-orientation="horizontal" aria-pressed="false" aria-label="Filtrar obras horizontais">Horizontal</button>
+              <label for="filter-orientation-horizontal" class="sr-only">Filtrar obras horizontais</label>
             </div>
           </fieldset>
 

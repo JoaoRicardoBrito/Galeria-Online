@@ -24,6 +24,62 @@
 .site-header__logo {
   font-family: var(--font-serif);
   font-size: 1.25rem;
+  position: relative;
+  z-index: 102;
+}
+
+.site-header__menu-toggle {
+  display: none;
+  position: relative;
+  z-index: 102;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  color: var(--color-text);
+}
+
+.site-header__menu-icon,
+.site-header__menu-icon::before,
+.site-header__menu-icon::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.site-header__menu-icon {
+  position: relative;
+}
+
+.site-header__menu-icon::before,
+.site-header__menu-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.site-header__menu-icon::before {
+  top: -6px;
+}
+
+.site-header__menu-icon::after {
+  top: 6px;
+}
+
+.site-header__menu-toggle[aria-expanded="true"] .site-header__menu-icon {
+  background: transparent;
+}
+
+.site-header__menu-toggle[aria-expanded="true"] .site-header__menu-icon::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-header__menu-toggle[aria-expanded="true"] .site-header__menu-icon::after {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .site-header__nav {
@@ -33,6 +89,9 @@
 
 .site-header__nav a {
   font-size: 0.95rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   transition: color var(--transition-fast);
 }
 
@@ -56,4 +115,34 @@
   max-width: var(--max-width-content);
   margin: 0 auto;
   padding: var(--space-8) var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .site-header__menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-header__nav {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    z-index: 101;
+    display: grid;
+    gap: 0;
+    padding: var(--space-3) var(--space-6) var(--space-6);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 12px 24px rgba(44, 44, 42, 0.12);
+  }
+
+  .site-header__nav a {
+    width: 100%;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .site-header__nav a:last-child {
+    border-bottom: 0;
+  }
 }

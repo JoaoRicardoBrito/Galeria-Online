@@ -26,6 +26,8 @@ export async function initObra() {
     ?.setAttribute('content', obra.descricao.slice(0, 155));
   document.querySelector('meta[property="og:title"]')
     ?.setAttribute('content', obra.nome);
+  document.querySelector('meta[property="og:description"]')
+    ?.setAttribute('content', obra.descricao.slice(0, 155));
   document.querySelector('meta[property="og:image"]')
     ?.setAttribute('content', `/${obra.imagem}`);
 

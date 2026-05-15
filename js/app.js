@@ -21,6 +21,92 @@ function markActiveNav() {
   });
 }
 
+function enableSpaceActivationForLinks() {
+  document.addEventListener('keydown', event => {
+    if (event.key !== ' ' && event.key !== 'Spacebar') return;
+    const link = event.target?.closest?.('a[href]');
+    if (!link) return;
+    event.preventDefault();
+    link.click();
+  });
+}
+
+function initMobileMenu() {
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('primary-navigation');
+  if (!toggle || !nav) return;
+
+  const desktopMedia = window.matchMedia('(min-width: 769px)');
+  const links = Array.from(nav.querySelectorAll('a[href]'));
+  let isOpen = false;
+
+  function setOpen(open, { focusFirst = false, returnFocus = false } = {}) {
+    isOpen = open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+
+    if (desktopMedia.matches) {
+      nav.hidden = false;
+      return;
+    }
+
+    nav.hidden = !open;
+
+    if (open && focusFirst) {
+      requestAnimationFrame(() => links[0]?.focus());
+    } else if (!open && returnFocus) {
+      toggle.focus();
+    }
+  }
+
+  function syncMenuVisibility() {
+    nav.hidden = !desktopMedia.matches && !isOpen;
+  }
+
+  function trapFocus(event) {
+    if (!isOpen || desktopMedia.matches || event.key !== 'Tab') return;
+    const focusable = [toggle, ...links].filter(el => !el.hidden);
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  toggle.addEventListener('click', () => {
+    setOpen(!isOpen, { focusFirst: !isOpen, returnFocus: isOpen });
+  });
+
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      if (!desktopMedia.matches) setOpen(false);
+    });
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && isOpen && !desktopMedia.matches) {
+      setOpen(false, { returnFocus: true });
+      return;
+    }
+    trapFocus(event);
+  });
+
+  if (desktopMedia.addEventListener) {
+    desktopMedia.addEventListener('change', syncMenuVisibility);
+  } else {
+    desktopMedia.addListener(syncMenuVisibility);
+  }
+
+  syncMenuVisibility();
+}
+
 /**
  * Despacha para o módulo de inicialização da página atual.
  * Phase 1: nenhum módulo de página existe ainda — função é stub.
@@ -88,6 +174,8 @@ async function init() {
     console.warn('[app] Erro de rede ao carregar componentes:', err);
   }
   markActiveNav();
+  initMobileMenu();
+  enableSpaceActivationForLinks();
   await dispatchPage();
 }
 

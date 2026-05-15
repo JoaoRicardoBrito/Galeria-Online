@@ -30,13 +30,14 @@
   <header id="site-header" class="site-header"></header>
 
   <main>
+    <h1 class="sr-only">Carlos Ventura — Galeria de Arte</h1>
 
     <!-- Carrossel Hero -->
-    <section class="carousel" aria-label="Obras em destaque" role="region">
-      <div class="carousel__track"></div>
-      <button class="carousel__btn--prev" aria-label="Slide anterior">&#8592;</button>
-      <button class="carousel__btn--next" aria-label="Próximo slide">&#8594;</button>
-      <div class="carousel__dots" role="tablist" aria-label="Indicadores de slide"></div>
+    <section class="carousel" aria-label="Obras em destaque" aria-roledescription="carrossel" role="region">
+      <div class="carousel__track" id="carousel-track"></div>
+      <button class="carousel__btn--prev" aria-label="Slide anterior" aria-controls="carousel-track">&#8592;</button>
+      <button class="carousel__btn--next" aria-label="Próximo slide" aria-controls="carousel-track">&#8594;</button>
+      <div class="carousel__dots" aria-label="Indicadores de slide"></div>
     </section>
 
     <!-- Obra em Destaque -->
@@ -52,7 +53,7 @@
       <div class="collections__inner">
         <div class="collections__header">
           <h2 class="collections__title">Coleções</h2>
-          <a href="/colecoes.html" class="collections__link">Ver todas</a>
+          <a href="/colecoes.html" class="collections__link">Ver todas as coleções</a>
         </div>
         <div class="collections__grid" id="collections-grid">
           <a href="/obras.html?colecao=paisagens-urbanas" class="collection-card">
