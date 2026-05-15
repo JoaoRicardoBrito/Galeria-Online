@@ -1,6 +1,6 @@
 import { getObra, getObras } from '/js/data.js';
 import { getConversions } from '/js/currency.js';
-import { buildWhatsAppLink } from '/js/whatsapp.js';
+import { getWhatsAppLinkAttributes } from '/js/whatsapp.js';
 
 export async function initObra() {
   const params = new URLSearchParams(window.location.search);
@@ -29,7 +29,7 @@ export async function initObra() {
   document.querySelector('meta[property="og:image"]')
     ?.setAttribute('content', `/${obra.imagem}`);
 
-  const vendido = obra.status === 'vendido';
+  const whatsappLink = getWhatsAppLinkAttributes(obra);
 
   root.innerHTML = `
     <div class="obra-layout">
@@ -63,11 +63,11 @@ export async function initObra() {
         <p class="obra-desc">${obra.descricao}</p>
 
         <div class="obra-cta">
-          ${vendido
-            ? '<p class="obra-vendida">Esta obra foi adquirida por um colecionador.</p>'
-            : `<a href="${buildWhatsAppLink(obra)}" target="_blank" rel="noopener" class="btn btn--primary obra-whatsapp-btn">
+          ${whatsappLink
+            ? `<a href="${whatsappLink.href}" target="${whatsappLink.target}" rel="${whatsappLink.rel}" class="btn btn--primary obra-whatsapp-btn">
                 Adquirir esta obra
                </a>`
+            : '<p class="obra-vendida">Esta obra não está disponível para aquisição no momento.</p>'
           }
         </div>
       </div>
@@ -75,13 +75,13 @@ export async function initObra() {
   `;
 
   // Conversão de moeda assíncrona — não bloqueia render
-  if (!vendido) {
-    getConversions(obra.preco).then(fx => {
+  getConversions(obra.preco)
+    .then(fx => {
       const el = document.getElementById('obra-price-fx');
       if (!el || !fx) return;
-      el.textContent = `aprox. USD ${fx.usd} · EUR ${fx.eur}`;
-    });
-  }
+      el.textContent = `${fx.usd} · ${fx.eur}`;
+    })
+    .catch(() => {});
 
   // Obras relacionadas
   _renderRelated(obra);
