@@ -122,6 +122,10 @@
     display: inline-flex;
   }
 
+  .site-header__nav[hidden] {
+    display: none;
+  }
+
   .site-header__nav {
     position: absolute;
     top: var(--header-height);

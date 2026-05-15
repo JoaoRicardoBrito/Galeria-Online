@@ -36,7 +36,7 @@ export function renderGrid(obras, grid, empty) {
     card.className = 'artwork-card';
 
     card.innerHTML = `
-      <a href="/obra.html?id=${obra.id}" class="artwork-card__link" aria-label="Ver detalhes da obra ${obra.nome}">
+      <a href="/obra.html?id=${obra.id}" class="artwork-card__link" aria-label="Ver detalhes da obra ${obra.nome}${obra.status === 'vendido' ? ', obra vendida' : ''}">
         <div class="artwork-card__img-wrap">
           <img
             src="/${obra.imagem}"
