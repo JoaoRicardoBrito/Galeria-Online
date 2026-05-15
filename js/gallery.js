@@ -1,4 +1,4 @@
-import { getObras } from '/js/data.js';
+import { getColecoes, getObras } from '/js/data.js';
 
 export async function initGallery() {
   const grid = document.getElementById('gallery-grid');
@@ -6,12 +6,17 @@ export async function initGallery() {
   if (!grid) return;
 
   const obras = await getObras();
+  const colecoes = await getColecoes();
 
   // Pré-filtro por ?colecao= na URL
   const params = new URLSearchParams(window.location.search);
   const preColecao = params.get('colecao');
+  const colecaoSelecionada = colecoes.find(colecao =>
+    colecao.id === preColecao || colecao.nome === preColecao
+  );
+  const filtroColecao = colecaoSelecionada?.nome ?? preColecao;
   const initial = preColecao
-    ? obras.filter(o => o.colecao === preColecao)
+    ? obras.filter(o => o.colecao === filtroColecao)
     : obras;
 
   renderGrid(initial, grid, empty);

@@ -108,6 +108,80 @@
   color: var(--color-text);
 }
 
+/* Coleções */
+
+.colecoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--card-gap);
+}
+
+.colecao-card {
+  background: var(--color-bg-secondary);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.colecao-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(44, 44, 42, 0.12);
+}
+
+.colecao-card__link {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.colecao-card__img-wrap {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+}
+
+.colecao-card__img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 44, 42, 0);
+  transition: background var(--transition-fast);
+}
+
+.colecao-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.colecao-card:hover .colecao-card__image {
+  transform: scale(1.04);
+}
+
+.colecao-card:hover .colecao-card__img-wrap::after {
+  background: rgba(44, 44, 42, 0.08);
+}
+
+.colecao-card__body {
+  padding: var(--space-4) var(--space-4) var(--space-6);
+}
+
+.colecao-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin-bottom: var(--space-2);
+}
+
+.colecao-card__desc {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
 /* ── Estado vazio ───────────────────────────────────────── */
 
 .gallery-empty {

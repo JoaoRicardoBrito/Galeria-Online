@@ -5,6 +5,27 @@
 let _cache = null;
 let _inflight = null;
 
+const COLECAO_DESCRICOES = {
+  'Paisagens Urbanas': 'O cotidiano brasileiro visto através de avenidas, fachadas e mercados populares.',
+  'Grandeza do Mundo': 'A imensidão da natureza em montanhas, oceanos e chapadas que provocam silêncio interior.',
+};
+
+function slugify(value) {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function getDescricaoColecao(nome, total) {
+  if (COLECAO_DESCRICOES[nome]) return COLECAO_DESCRICOES[nome];
+  const obraLabel = total === 1 ? 'obra' : 'obras';
+  return `Seleção com ${total} ${obraLabel} da coleção ${nome}.`;
+}
+
 /**
  * Retorna o array completo de obras. Faz fetch apenas na primeira chamada.
  * Chamadas concorrentes durante o fetch inicial reaproveitam a mesma promise (_inflight).
@@ -43,18 +64,31 @@ export async function getObra(id) {
 }
 
 /**
- * Retorna a lista de nomes únicos de coleções presentes no dataset.
- * @returns {Promise<string[]>}
+ * Retorna a lista de coleções únicas presentes no dataset.
+ * @returns {Promise<Array<{ id: string, nome: string, descricao: string, capa: string, capaAlt: string }>>}
  */
 export async function getColecoes() {
   const obras = await getObras();
-  const seen = new Set();
-  const result = [];
+  const porNome = new Map();
+
   for (const o of obras) {
-    if (!seen.has(o.colecao)) {
-      seen.add(o.colecao);
-      result.push(o.colecao);
+    if (!o.colecao) continue;
+    if (!porNome.has(o.colecao)) {
+      porNome.set(o.colecao, {
+        nome: o.colecao,
+        capa: o.imagem,
+        capaAlt: o.imagemAlt,
+        total: 0,
+      });
     }
+    porNome.get(o.colecao).total += 1;
   }
-  return result;
+
+  return Array.from(porNome.values()).map(colecao => ({
+    id: slugify(colecao.nome),
+    nome: colecao.nome,
+    descricao: getDescricaoColecao(colecao.nome, colecao.total),
+    capa: colecao.capa,
+    capaAlt: colecao.capaAlt,
+  }));
 }

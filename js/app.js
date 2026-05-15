@@ -47,9 +47,11 @@ async function dispatchPage() {
     case 'page-sobre':
       // Phase 5: nenhuma lógica dinâmica
       break;
-    case 'page-colecoes':
-      // Phase 5: const { initColecoes } = await import('/js/colecoes.js'); initColecoes();
+    case 'page-colecoes': {
+      const { initColecoes } = await import('/js/colecoes.js');
+      await initColecoes();
       break;
+    }
     default:
       console.warn(`[app] body id desconhecido: ${page}`);
   }
