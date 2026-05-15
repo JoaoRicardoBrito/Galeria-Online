@@ -36,6 +36,87 @@
         <p class="gallery-page__count" id="gallery-count"></p>
       </div>
 
+      <section class="gallery-filters" aria-label="Filtros da galeria">
+        <div class="gallery-filters__bar">
+          <button
+            type="button"
+            class="gallery-filters__toggle"
+            id="filters-toggle"
+            aria-expanded="true"
+            aria-controls="filters-panel"
+          >
+            Filtros
+          </button>
+
+          <div class="gallery-filters__sort">
+            <label for="sort-order" class="filter-label">Ordenar</label>
+            <select id="sort-order" name="sort-order" class="filter-control">
+              <option value="recentes">Mais recentes</option>
+              <option value="preco-asc">Pre&ccedil;o crescente</option>
+              <option value="preco-desc">Pre&ccedil;o decrescente</option>
+            </select>
+          </div>
+        </div>
+
+        <form class="gallery-filters__panel" id="filters-panel" data-collapsed="false">
+          <div class="filter-field">
+            <label for="filter-tecnica" class="filter-label">T&eacute;cnica</label>
+            <select id="filter-tecnica" name="tecnica" class="filter-control">
+              <option value="">Todas</option>
+            </select>
+          </div>
+
+          <fieldset class="filter-field filter-field--buttons">
+            <legend class="filter-label">Tamanho</legend>
+            <div class="filter-toggle-group" role="group" aria-label="Filtrar por tamanho">
+              <button type="button" class="filter-chip" data-filter-size="P" aria-pressed="false">P</button>
+              <button type="button" class="filter-chip" data-filter-size="M" aria-pressed="false">M</button>
+              <button type="button" class="filter-chip" data-filter-size="G" aria-pressed="false">G</button>
+            </div>
+          </fieldset>
+
+          <div class="filter-field">
+            <label for="filter-colecao" class="filter-label">Cole&ccedil;&atilde;o</label>
+            <select id="filter-colecao" name="colecao" class="filter-control">
+              <option value="">Todas</option>
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="filter-ano" class="filter-label">Ano</label>
+            <select id="filter-ano" name="ano" class="filter-control">
+              <option value="">Todos</option>
+            </select>
+          </div>
+
+          <fieldset class="filter-field filter-field--price">
+            <legend class="filter-label">Pre&ccedil;o</legend>
+            <div class="price-range">
+              <label for="filter-price-min">M&iacute;nimo</label>
+              <input type="range" id="filter-price-min" name="preco-min" min="0" max="0" step="100">
+              <output id="filter-price-min-value" for="filter-price-min">R$ 0</output>
+            </div>
+            <div class="price-range">
+              <label for="filter-price-max">M&aacute;ximo</label>
+              <input type="range" id="filter-price-max" name="preco-max" min="0" max="0" step="100">
+              <output id="filter-price-max-value" for="filter-price-max">R$ 0</output>
+            </div>
+          </fieldset>
+
+          <fieldset class="filter-field filter-field--buttons">
+            <legend class="filter-label">Orienta&ccedil;&atilde;o</legend>
+            <div class="filter-toggle-group" role="group" aria-label="Filtrar por orientacao">
+              <button type="button" class="filter-chip" data-filter-orientation="vertical" aria-pressed="false">Vertical</button>
+              <button type="button" class="filter-chip" data-filter-orientation="horizontal" aria-pressed="false">Horizontal</button>
+            </div>
+          </fieldset>
+
+          <button type="button" class="btn btn--ghost gallery-filters__clear" id="clear-filters" hidden>
+            Limpar filtros
+          </button>
+        </form>
+      </section>
+
       <div id="gallery-grid" class="gallery-grid"></div>
 
       <div id="gallery-empty" class="gallery-empty" hidden>

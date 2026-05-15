@@ -1,4 +1,5 @@
 import { getColecoes, getObras } from '/js/data.js';
+import { initFilters } from '/js/filters.js';
 
 export async function initGallery() {
   const grid = document.getElementById('gallery-grid');
@@ -7,22 +8,18 @@ export async function initGallery() {
 
   const obras = await getObras();
   const colecoes = await getColecoes();
-
-  // Pré-filtro por ?colecao= na URL
-  const params = new URLSearchParams(window.location.search);
-  const preColecao = params.get('colecao');
-  const colecaoSelecionada = colecoes.find(colecao =>
-    colecao.id === preColecao || colecao.nome === preColecao
-  );
-  const filtroColecao = colecaoSelecionada?.nome ?? preColecao;
-  const initial = preColecao
-    ? obras.filter(o => o.colecao === filtroColecao)
-    : obras;
-
-  renderGrid(initial, grid, empty);
-
   const count = document.getElementById('gallery-count');
-  if (count) count.textContent = `${initial.length} obra${initial.length !== 1 ? 's' : ''}`;
+
+  initFilters({
+    obras,
+    colecoes,
+    onChange(filteredObras) {
+      renderGrid(filteredObras, grid, empty);
+      if (count) {
+        count.textContent = `${filteredObras.length} obra${filteredObras.length !== 1 ? 's' : ''}`;
+      }
+    },
+  });
 }
 
 export function renderGrid(obras, grid, empty) {
