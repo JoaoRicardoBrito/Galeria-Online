@@ -122,22 +122,22 @@
     display: inline-flex;
   }
 
-  .site-header__nav[hidden] {
-    display: none;
-  }
-
   .site-header__nav {
+    display: none;
     position: absolute;
     top: var(--header-height);
     left: 0;
     right: 0;
     z-index: 101;
-    display: grid;
     gap: 0;
     padding: var(--space-3) var(--space-6) var(--space-6);
     background: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
     box-shadow: 0 12px 24px rgba(44, 44, 42, 0.12);
+  }
+
+  .site-header__nav:not([hidden]) {
+    display: grid;
   }
 
   .site-header__nav a {
