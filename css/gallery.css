@@ -406,18 +406,12 @@
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: var(--space-3);
   }
 
   .artwork-card__info {
     opacity: 1;
     transform: none;
-  }
-}
-
-@media (max-width: 380px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
   }
 }
